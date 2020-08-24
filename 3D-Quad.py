@@ -39,7 +39,6 @@ class QuadRotor:
                 
     
     def dynamics(self,state,u):
-        f = 'fick'
         state_derivative = 0
         return state_derivative
 

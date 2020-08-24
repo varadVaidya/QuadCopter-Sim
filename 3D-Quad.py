@@ -37,9 +37,10 @@ class QuadRotor:
             self.yawdot = 0
             #set the initial class and name all variable required according to the dynamics
                 
-        
     
-    def dynamics(self):
-        pass
+    def dynamics(self,state,u):
+        f = 'fick'
+        state_derivative = 0
+        return state_derivative
 
         

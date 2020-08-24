@@ -24,5 +24,16 @@ class QuadRotor:
         self.arm_length = 0.086 #m
         # All the parameters for the drone are taken from the Aerial Robotics Course
         
+    # create an inital state class
+    class init_state:
+        def __init__(self):
+            pos = np.array([0,0,0])
+            vel = np.array([0,0,0])
+            accel = np.array([0,0,0])
+            rot = np.array([0,0,0])
+            omega = np.array([0,0,0])
+            yaw = 0 
+            super().__init__()
+        
         
         

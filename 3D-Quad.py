@@ -25,7 +25,7 @@ class QuadRotor:
         self.init_state = self.state()
         self.curr_state = self.state()
         
-        # create an inital state class
+        # create a state class
     class state:
         def __init__(self):
             self.pos = np.array([0,0,0])
@@ -35,7 +35,7 @@ class QuadRotor:
             self.omega = np.array([0,0,0])
             self.yaw = 0
             self.yawdot = 0
-            #set the initial class and name all variable required according to the dynamics
+            #set the class and name all variable required according to the dynamics
                 
     
     def dynamics(self,state,u):

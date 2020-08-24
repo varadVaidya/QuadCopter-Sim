@@ -9,7 +9,6 @@ from scipy.integrate import odeint
 class QuadRotor:
     
     def __init__(self):
-        super().__init__()
         self.mass = 0.1800
         self.gravity = 9.81
         self.Ixx = 0.00025
@@ -20,20 +19,27 @@ class QuadRotor:
             [0      , 0.000232,0],
             [0, 0       ,0.0003738]
         ])
-        self.invI = np.linalg.inv(I)
-        self.arm_length = 0.086 #m
+        self.invI = np.linalg.inv(self.I)
+        self.arm_length = 0.086 #m        
         # All the parameters for the drone are taken from the Aerial Robotics Course
+        self.init_state = self.state()
+        self.curr_state = self.state()
         
-    # create an inital state class
-    class init_state:
+        # create an inital state class
+    class state:
         def __init__(self):
-            pos = np.array([0,0,0])
-            vel = np.array([0,0,0])
-            accel = np.array([0,0,0])
-            rot = np.array([0,0,0])
-            omega = np.array([0,0,0])
-            yaw = 0 
-            super().__init__()
+            self.pos = np.array([0,0,0])
+            self.vel = np.array([0,0,0])
+            self.accel = np.array([0,0,0])
+            self.rot = np.array([0,0,0])
+            self.omega = np.array([0,0,0])
+            self.yaw = 0
+            self.yawdot = 0
+            #set the initial class and name all variable required according to the dynamics
+                
         
-        
+    
+    def dynamics(self):
+        pass
+
         

@@ -28,13 +28,16 @@ class QuadRotor:
         # create a state class
     class state:
         def __init__(self):
+            # POSITION VELOCITY AND ACCEL IN THE FORMAT OF X,Y,Z
             self.pos = np.array([0,0,0])
             self.vel = np.array([0,0,0])
             self.accel = np.array([0,0,0])
-            self.rot = np.array([0,0,0])
-            self.omega = np.array([0,0,0])
-            self.yaw = 0
-            self.yawdot = 0
+            #  ATTITUDE IN THE FORMAT OF ROLL PITCH YAW.
+            self.attitude = np.array([0,0,0])
+            # PQR is the angluar velocity in the body frame.
+            self.pqr = np.array([0,0,0])
+            
+
             #set the class and name all variable required according to the dynamics
                 
     

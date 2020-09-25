@@ -1,5 +1,6 @@
 import numpy as np
-import model.QuadCopter
+from QuadCopter import QuadRotor
+
 class controlDynamics:
     
     '''
@@ -49,8 +50,8 @@ class controlDynamics:
         
         u1,u2,u3,u4 = u      # unpack the input vector
         
-        attitude_derivative = [rolldot,pitchdot,yawdot,
-                                u2/model.QuadCopter.I[0,0], u3/model.QuadCopter.I[1,1], u4/model.QuadCopter.I[2,2] ]
+        attitude_derivative = np.array([rolldot,pitchdot,yawdot,
+                                u2/QuadRotor().I[0,0], u3/QuadRotor().I[1,1], u4/QuadRotor().I[2,2] ])
         return attitude_derivative
     
     def position_solver(self,positon,u,attitude):
@@ -65,11 +66,11 @@ class controlDynamics:
         u1,u2,u3,u4 = u      # unpack the input vector
         phi,theta,psi = attitude
         
-        position_derivative =[xdot,ydot,zdot,
-                            (u1/model.QuadCopter.mass) * ( np.cos(phi) * np.sin(theta) * np.cos(psi) + np.sin(phi) * np.sin(psi) ) ,
-                            (u1/model.QuadCopter.mass) * ( np.cos(phi) * np.sin(theta) * np.sin(psi) - np.sin(phi) * np.cos(psi) )
-                            (u1/model.QuadCopter.mass) * ( np.cos(phi) * np.cos(theta) - model.QuadCopter.gravity )
-                            ]
+        position_derivative = np.array([xdot,ydot,zdot,
+                            (u1/QuadRotor().mass) * ( np.cos(phi) * np.sin(theta) * np.cos(psi) + np.sin(phi) * np.sin(psi) ) ,
+                            (u1/QuadRotor().mass) * ( np.cos(phi) * np.sin(theta) * np.sin(psi) - np.sin(phi) * np.cos(psi) )
+                            (u1/QuadRotor().mass) * ( np.cos(phi) * np.cos(theta) - QuadRotor().gravity )
+                            ])
         
         return position_derivative
 

@@ -64,7 +64,7 @@ class QuadRotor:
         u1,u2,u3,u4 are the control input to the system. 
         
         
-        assuming the hover control 
+        assuming the hover position at all times
         that means the theta and phi are at all times zero.
         
         thus pqr will be equal to the derivative of the roll pitch yaw.
@@ -110,11 +110,5 @@ class QuadRotor:
                                   ]
             
             return position_derivative
-        
-        
-        
-        
-        state_derivative = 0
-        return state_derivative
 
         

@@ -1,5 +1,5 @@
 import numpy as np
-from QuadCopter import QuadRotor
+from .QuadCopter import QuadRotor
 
 class controlDynamics:
     
